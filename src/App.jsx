@@ -22,6 +22,7 @@ import Update from "./pages/restaurants/Update.jsx";
 import ManagerReservePage from './Router/ManagerReservePage.jsx';
 import SchedulePage from './Router/SchedulePage.jsx';
 import NoticeBoardPage from 'Router/NoticeBoardPage';
+import KakaoMap from 'components/KDH/KakaoMap';
 function App() {
   const { token } = useAuthStore();
 
@@ -30,6 +31,7 @@ function App() {
       <div className="App">
         <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/kk" element={<KakaoMap />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Restaurant" element={<Restaurant />} />
           <Route path="/Restaurant/:restaurantId" element={<RestaurantInfo />} />
