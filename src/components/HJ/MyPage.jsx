@@ -23,7 +23,7 @@ function MyPage() {
             <Link className="HjEditUserProfile" to="/editUserProfile">프로필 수정</Link>
           </div>
 
-          {/* 내 레스토랑: 오너만 보임 */}
+          {/* 내 레스토랑: OWNER랑 ADMIN만 보임 */}
           {userRole && userRole.split(',').includes('OWNER') && (
             <div className="HjMyPageSection">
               <div className="HjMyPageSectionHeader">
