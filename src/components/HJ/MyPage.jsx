@@ -12,7 +12,37 @@ function MyPage() {
   const userRole = useAuthStore((state) => state.userRole);
   const { token, userId } = useAuthStore();
   const [recentReservations, setRecentReservations] = useState([]);
+  const [myRestaurants, setMyRestaurants] = useState([]);
 
+  // OWNER 레스토랑 목록 가져오기
+  useEffect(() => {
+    const fetchMyRestaurants = async () => {
+      if (userRole && userRole.includes("OWNER")) {
+        try {
+          const response = await fetch(`http://localhost:8080/api/restaurants/my`, {
+            method: "GET",
+            header: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              `레스토랑 데이터를 가져오는 중 오류 발생: ${response.statusText}`
+            );
+          }
+
+          const data = await response.json();
+          setMyRestaurants(data.list);
+        } catch (error) {
+          console.error("레스토랑 데이터를 가져오는 중 오류 발생:", error);
+        }
+      }
+    }
+  });
+
+  // 예약 현황 가져오기
   useEffect(() => {
     const fetchRecentReservations = async () => {
       try {
@@ -72,6 +102,29 @@ function MyPage() {
               <div className="HjMyPageSectionHeader">
                 <p className="HjMyPageSectionTitle">내 레스토랑</p>
               </div>
+              <ul className="HjMyRestaurantList">
+                {myRestaurants.map((restaurant) => (
+                  <li key={restaurant.id} className="HjMyRestaurantList-detail">
+                    <img
+                      src={restaurant.imageUrl}
+                      alt={restaurant.name}
+                      style={{
+                        width: "80px",
+                        height: "80px",
+                        objectFit: "cover",
+                        borderRadius: "5px",
+                        marginRight: "20px",
+                      }}
+                    />
+                    <p>{restaurant.name}</p>
+                    <p>{restaurant.address}</p>
+                    {/* 레스토랑 관리 페이지 링크 추가 */}
+                    <Link to={`/restaurant/manage/${restaurant.id}`}>
+                      관리
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
 
