@@ -145,13 +145,6 @@ const fetchNoticeDetail = (bbsId, nttId) => {
       console.error('공지사항 상세 정보를 가져오는 데 실패했습니다:', error);
     });
 };
-  const ResImg = [
-    "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221114_279%2F1668411417939IQUlP_JPEG%2F601522EE-8C9D-48E6-9205-D10B8887E07F.jpeg",
-    "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220505_190%2F165169820357548FLT_JPEG%2FScreenshot_20210825-093244_Instagram_resized.jpg",
-    "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211230_220%2F1640873782183b88p5_JPEG%2FOld_Meets_New_%25B7%25CE%25B0%25ED-02.jpg",
-    "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20241103_88%2F17306136505694RmW9_JPEG%2F1000009833.jpg",
-    "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyNDAyMjRfMjMg%2FMDAxNzA4NzQzMjUzNTA3.RQ5AtZR_ik2FheavCnJ0nA-XAd_l5w62-VGrSEuI_KUg.R8I2Z7_aBfbhUMEGJfX3nQmbnrWrxnIr2W1JDRLvUWkg.PNG%2F3038352-982b6b0c-f66c-49db-aed7-eff835913286.png%26_type%3Dad"
-  ];
 
   // 레스토랑 데이터 가져오기
   // const fetchRestaurantsData = async (page = 1) => {
@@ -215,7 +208,7 @@ const fetchNoticeDetail = (bbsId, nttId) => {
           <div key={restaurant.restaurantId || index} className="image-container">
             {/* 이미지 */}
             <img
-              src={ResImg[index % ResImg.length]} // 대표 이미지 또는 기본 이미지
+              src={restaurantImages[restaurant.restaurantId] || defaultImage} 
               alt={restaurant.name || "Restaurant"}
               className="main-image"
             />

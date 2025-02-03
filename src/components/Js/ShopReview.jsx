@@ -395,25 +395,31 @@ export function ShopReview() {
       <Row className="mb-4 js-photo-review">
         <Col>
           <h3 className="js-section-title">사진/영상 리뷰</h3>
-          <Row>
-            {reviews
-              .filter(review => reviewImages[review.reviewId]?.length > 0) // 이미지를 가진 리뷰만 필터링
-              .slice(0, showPhotosCount) // 표시할 사진 수 제한
-              .map((review, index) => (
-                <Col md={4} className="mb-3" key={index}>
-                  <img
-                    src={imgUrl + reviewImages[review.reviewId][0].imageUrl}
-                    alt={`리뷰 이미지 ${index + 1}`}
-                    className="img-fluid rounded shadow-sm"
-                  />
-                </Col>
-              ))}
-          </Row>
-          {/* 사진/영상 리뷰가 더 있으면 더보기 버튼 표시 */}
-          {reviews.filter(review => reviewImages[review.reviewId] && reviewImages[review.reviewId].length > 0).length > showPhotosCount && (
-            <Button variant="primary" onClick={handleShowMorePhotos} className="js-more-btn">
-              더보기
-            </Button>
+          {reviews.filter(review => reviewImages[review.reviewId]?.length > 0).length === 0 ? (
+            <p className="mt-4 mb-4 text-center">사진/영상 리뷰가 없습니다.</p>
+          ) : (
+            <>
+              <Row>
+                {reviews
+                  .filter(review => reviewImages[review.reviewId]?.length > 0) // 이미지를 가진 리뷰만 필터링
+                  .slice(0, showPhotosCount) // 표시할 사진 수 제한
+                  .map((review, index) => (
+                    <Col md={4} className="mb-3" key={index}>
+                      <img
+                        src={imgUrl + reviewImages[review.reviewId][0].imageUrl}
+                        alt={`리뷰 이미지 ${index + 1}`}
+                        className="img-fluid rounded shadow-sm"
+                      />
+                    </Col>
+                  ))}
+              </Row>
+              {/* 사진/영상 리뷰가 더 있으면 더보기 버튼 표시 */}
+              {reviews.filter(review => reviewImages[review.reviewId]?.length > 0).length > showPhotosCount && (
+                <Button variant="primary" onClick={handleShowMorePhotos} className="js-more-btn">
+                  더보기
+                </Button>
+              )}
+            </>
           )}
         </Col>
       </Row>
@@ -435,103 +441,109 @@ export function ShopReview() {
               {showPhotoReviewsOnly ? "모든 리뷰 보기" : "사진 리뷰만 보기"}
             </span>
             </h3>
-          <ListGroup>
-          {filteredReviews.slice(0, showReviewsCount).map((review) => (
-            <ListGroup.Item key={review.reviewId} className="js-review-item">
-              <Row className="align-items-center">
-                <img
-                  src={review.imageUrl || "https://via.placeholder.com/40x40"}
-                  alt="리뷰 프로필 이미지"
-                  className="img-fluid rounded-circle mb-0"
-                />
-                <Col xs={8} className="d-flex flex-column">
-                  <p className="mb-0 fw-bold">{users[review.userId]}</p>
-                  <p className="text-muted small mb-0">{formatDate(review.createdAt)}</p>
-                </Col>
-                <Col className="d-flex justify-content-end align-items-start gap-2">
-                  <img
-                    src={helpfulReviews[review.reviewId] ? "/icons/heart.svg" : "/icons/heart-regular.svg"}
-                    alt="좋아요"
-                    onClick={() => handleHelpfulClick(review.reviewId)}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <p className="small text-muted">{review.helpfulCount}명의 좋아요</p>
-                  <img
-                    src="/icons/siren.png"
-                    alt="신고하기"
-                    onClick={() => handleReportClick(review.reviewId)}
-                    style={{ cursor: "pointer", marginRight: "10px" }}
-                  />
-                </Col>
-                {reviewImages[review.reviewId] && reviewImages[review.reviewId].length > 0 && (
-                  <div className="mt-2">
-                    {reviewImages[review.reviewId].map((image, index) => (
+            <ListGroup>
+              {filteredReviews.length === 0 ? (
+                <p className="mt-4 text-center mb-4">
+                  리뷰가 없습니다.
+                </p>
+              ) : (
+                filteredReviews.slice(0, showReviewsCount).map((review) => (
+                  <ListGroup.Item key={review.reviewId} className="js-review-item">
+                    <Row className="align-items-center">
                       <img
-                        key={index}
-                        src={imgUrl + image.imageUrl}
-                        alt={`리뷰 이미지 ${index + 1}`}
-                        className="img-fluid rounded"
+                        src={review.imageUrl || "/img/restaurant_icon.png"}
+                        alt="프로필 이미지"
+                        className="img-fluid rounded-circle mb-0"
                       />
-                    ))}
-                  </div>
-                )}
-              </Row>
-              <Row className="mt-3">
-                <Col>
-                  {isEditing === review.reviewId ? (
-                    <Form.Control
-                      type="textarea"
-                      value={editedContent}
-                      onChange={(e) => setEditedContent(e.target.value)}
-                    />
-                  ) : (
-                    <p className="mb-0">{review.reviewContent}</p>
-                  )}
-                </Col>
-                <Col xs={4} className="d-flex justify-content-end align-items-end">
-                  {review.userId === userId && (
-                    <>
-                      {isEditing === review.reviewId ? (
-                        <Button
-                          variant="primary"
-                          size="sm"
-                          className="me-2"
-                          onClick={() => handleEditSubmit(review.reviewId)}
-                        >
-                          완료
-                        </Button>
-                      ) : (
-                        <Button
-                          variant="secondary"
-                          size="sm"
-                          className="me-2"
-                          onClick={() => {
-                            setIsEditing(review.reviewId);
-                            setEditedContent(review.reviewContent);
-                          }}
-                        >
-                          수정
-                        </Button>
+                      <Col xs={8} className="d-flex flex-column">
+                        <p className="mb-0 fw-bold">{users[review.userId]}</p>
+                        <p className="text-muted small mb-0">{formatDate(review.createdAt)}</p>
+                      </Col>
+                      <Col className="d-flex justify-content-end align-items-start gap-2">
+                        <img
+                          src={helpfulReviews[review.reviewId] ? "/icons/heart.svg" : "/icons/heart-regular.svg"}
+                          alt="좋아요"
+                          onClick={() => handleHelpfulClick(review.reviewId)}
+                          style={{ cursor: "pointer" }}
+                        />
+                        <p className="small text-muted">{review.helpfulCount}명의 좋아요</p>
+                        <img
+                          src="/icons/siren.png"
+                          alt="신고하기"
+                          onClick={() => handleReportClick(review.reviewId)}
+                          style={{ cursor: "pointer", marginRight: "10px" }}
+                        />
+                      </Col>
+                      {reviewImages[review.reviewId] && reviewImages[review.reviewId].length > 0 && (
+                        <div className="mt-2">
+                          {reviewImages[review.reviewId].map((image, index) => (
+                            <img
+                              key={index}
+                              src={imgUrl + image.imageUrl}
+                              alt={`리뷰 이미지 ${index + 1}`}
+                              className="img-fluid rounded"
+                            />
+                          ))}
+                        </div>
                       )}
-                      <Button
-                        variant="danger"
-                        size="sm"
-                        onClick={() => handleDeleteClick(review.reviewId)}
-                      >
-                        삭제
-                      </Button>
-                    </>
-                  )}
-                </Col>
-              </Row>
-            </ListGroup.Item>
-          ))}
-          {filteredReviews.length > showReviewsCount && (
-            <Button variant="primary" onClick={handleShowMoreReviews} className="js-more-btn mt-3">
-              더보기
-            </Button>
-          )}
-        </ListGroup>
+                    </Row>
+                    <Row className="mt-3">
+                      <Col>
+                        {isEditing === review.reviewId ? (
+                          <Form.Control
+                            type="textarea"
+                            value={editedContent}
+                            onChange={(e) => setEditedContent(e.target.value)}
+                          />
+                        ) : (
+                          <p className="mb-0">{review.reviewContent}</p>
+                        )}
+                      </Col>
+                      <Col xs={4} className="d-flex justify-content-end align-items-end">
+                        {review.userId === userId && (
+                          <>
+                            {isEditing === review.reviewId ? (
+                              <Button
+                                variant="primary"
+                                size="sm"
+                                className="me-2"
+                                onClick={() => handleEditSubmit(review.reviewId)}
+                              >
+                                완료
+                              </Button>
+                            ) : (
+                              <Button
+                                variant="secondary"
+                                size="sm"
+                                className="me-2"
+                                onClick={() => {
+                                  setIsEditing(review.reviewId);
+                                  setEditedContent(review.reviewContent);
+                                }}
+                              >
+                                수정
+                              </Button>
+                            )}
+                            <Button
+                              variant="danger"
+                              size="sm"
+                              onClick={() => handleDeleteClick(review.reviewId)}
+                            >
+                              삭제
+                            </Button>
+                          </>
+                        )}
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                ))
+              )}
+              {filteredReviews.length > showReviewsCount && (
+                <Button variant="primary" onClick={handleShowMoreReviews} className="js-more-btn mt-3">
+                  더보기
+                </Button>
+              )}
+            </ListGroup>
         </Col>
       </Row>
 

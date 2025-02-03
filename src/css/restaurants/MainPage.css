@@ -37,7 +37,7 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5); /* 반투명 검정색 */
     pointer-events: none; /* 클릭 이벤트 방지 */
-    z-index: 1; /* 이미지 위에 표시 */
+    z-index: 0; /* 이미지 위에 표시 */
 }
 .main-banner::before {
     left: -60%;
@@ -59,6 +59,7 @@
     padding: 10px;
     border-radius: 5px;
     font-size: 1rem;
+    z-index: 2;
   }
   
   /* 보러가기 버튼 */

@@ -318,8 +318,10 @@ function RestaurantsInfo() {
       {/* 리뷰 섹션 */}
       <Card className="mb-4">
         <Card.Body>
-          <h2 className="h5 mb-4">리뷰</h2>
-          <Link to="/review/shopReview">전체보기</Link>
+          <h2 className="h4 mb-4 d-flex justify-content-between">
+            리뷰
+            <Link to="/review/shopReview" className="ml-auto h5">전체보기</Link>
+          </h2>
           <div className="border-bottom pb-3 mb-3">
             <p className="mb-1">리뷰 페이지에서 받아온 리뷰 클릭시 리뷰 페이지로</p>
             <small className="text-muted">- 김성자</small>
