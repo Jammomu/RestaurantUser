@@ -56,7 +56,7 @@ export function MyReview() {
   const fetchMyReviews = async () => {
     try {
       const response = await fetch(
-        `${apiUrl}/api/reviews/mypage/${userId}`,
+        `${apiUrl}/api/reviews/mypage`,
         {
           method: "GET",
           headers: {

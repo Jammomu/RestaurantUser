@@ -85,7 +85,14 @@ export function ShopReview() {
         url += `?userId=${userId}`;
       }
   
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`, // Authorization 헤더 추가
+          'Content-Type': 'application/json',
+        },
+      });
+
       if (response.ok) {
         const data = await response.json();
   
@@ -97,17 +104,16 @@ export function ShopReview() {
             helpfulCount: data.helpfulCounts[reviewId] || 0 // 여기서 올바르게 매핑
           };
         });
-        setReviews(reviewsData);
-  
         // 리뷰 이미지가 존재하는지 확인
         const reviewImagesData = data.images || {};
-        setReviewImages(reviewImagesData);
+
         // 평점 비율 계산 및 상태 업데이트
         const { ratingCount, ratingDistribution } = calculateRatingDistribution(reviewsData);
+
+        setReviews(reviewsData);
+        setReviewImages(reviewImagesData);
         setRatingCount(ratingCount);
         setRatingDistribution(ratingDistribution);
-  
-        // 좋아요 상태 설정
         setHelpfulReviews(data.isHelpful || {});
       } else {
         console.error("리뷰 정보를 가져오는 데 실패했습니다.");
@@ -360,7 +366,7 @@ export function ShopReview() {
           <div className="js-shop-info">
             {restaurantImg.length > 0 ? (
               <img
-                src={imgUrl + restaurantImg[0].imageUrl}
+                src={restaurantImg[0].imageUrl}
                 alt="가게 이미지"
                 className="img-fluid mb-3 rounded"
               />
@@ -406,7 +412,7 @@ export function ShopReview() {
                   .map((review, index) => (
                     <Col md={4} className="mb-3" key={index}>
                       <img
-                        src={imgUrl + reviewImages[review.reviewId][0].imageUrl}
+                        src={reviewImages[review.reviewId][0].imageUrl}
                         alt={`리뷰 이미지 ${index + 1}`}
                         className="img-fluid rounded shadow-sm"
                       />
@@ -479,7 +485,7 @@ export function ShopReview() {
                           {reviewImages[review.reviewId].map((image, index) => (
                             <img
                               key={index}
-                              src={imgUrl + image.imageUrl}
+                              src={image.imageUrl}
                               alt={`리뷰 이미지 ${index + 1}`}
                               className="img-fluid rounded"
                             />
