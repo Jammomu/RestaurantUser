@@ -450,7 +450,7 @@ export function MyReview() {
                           <p className="mb-0 fw-bold">{restaurant[0]?.name}</p>
                         </Col>
                         {/* 뱃지와 취소 버튼 */}
-                        <Col xs={3} className="d-flex flex-column align-items-end">
+                        <Col xs={3} className="d-flex flex-column align-items-end position-relative">
                           {/* 뱃지: 오른쪽 상단 */}
                           <Badge
                             bg={
@@ -460,6 +460,12 @@ export function MyReview() {
                                 ? "primary"
                                 : "warning"
                             }
+                            style={{
+                              position: "absolute", // 절대 위치 설정
+                              top: 0,
+                              right: -26,
+                              transform: "translate(50%, -50%)", // 뱃지를 오른쪽 위로 이동
+                            }}
                           >
                             {statusToKorean(report.status)}
                           </Badge>
