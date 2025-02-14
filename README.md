@@ -257,138 +257,71 @@ src
 
 ### [예약]
 
-#### 1. 예약
-- 상단 프로필란에 프로필 수정과 상품 등록 버튼이 나타납니다.
-- 판매중인 상품란에는 사용자가 판매하는 상품이 등록되며, 판매중인 상품이 없을 경우에는 영역 자체가 나타나지 않습니다.
+- 가게 예약하기를 누르면 캘린더에서 날짜와 시간, 인원과 요청사항을 입력 후 예약 진행 가능
+- 예역현황에서 결제하기를 눌러 카카오페이로 연동
 
-| 예약 중 | 결제 중 |
-|----------|----------|
-|![reservation](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EC%98%88%EC%95%BD%20%EC%A4%91.png)|![payment](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EA%B2%B0%EC%A0%9C%EC%A4%91.png)|
 
-| 예약현황 |
+| 예약 중 |
 |--------------------|
-|![reservation2](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EB%82%B4%20%EC%98%88%EC%95%BD%ED%98%84%ED%99%A9.png)|
+|![reservation](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EC%98%88%EC%95%BD%20%EC%A4%91.png)|
+
+| 예약현황 | 결제 중 |
+|----------|----------|
+|![reservation2](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EB%82%B4%20%EC%98%88%EC%95%BD%ED%98%84%ED%99%A9.png)|![payment](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EA%B2%B0%EC%A0%9C%EC%A4%91.png)|
 
 <br>
 
-#### 3. 프로필 수정
-- 사용자 프로필 이미지, 이름, 아이디, 소개 중 한 가지를 수정하면 저장 버튼이 활성화됩니다.
-- 계정 ID의 유효한 형식 및 중복 검사를 통과하지 못하면 하단에 경고 문구가 나타나며 저장 버튼이 비활성화됩니다.
-- 사용자 이름과 소개는 공백으로 시작할 수 없습니다.
-- 프로필 수정이 완료되면 내 프로필 페이지로 이동합니다.
+### [리뷰]
 
-| 초기화면 |
+- 가게의 별점을 1~5점 사이로 입력 할 수 있습니다.
+- 리뷰 이미지를 업로드 할 수 있습니다.
+- 실제 이용자가 리뷰를 작성할 수 있도록 예약시간 30분 후 부터 가능하도록 했습니다.
+
+| 리뷰 작성 |
 |----------|
-|![editProfile](https://user-images.githubusercontent.com/112460466/210381212-d67fdf87-b90c-4501-a331-f2a384534941.gif)|
+|![reviewup](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EB%A6%AC%EB%B7%B0%20%EC%9E%91%EC%84%B1.png)|
 
 <br>
 
-### [게시글]
+#### 2. 가게 리뷰
+- 작성된 리뷰는 가게정보 리뷰탭탭에서 확인 가능합니다.
+- 별점을 종합하여 별점 개수와 평균 점수를 나타냅니다.
+- 이미지와 리뷰를 따로 볼 수 있습니다.
 
-#### 1. 게시글 작성
-- 글이 입력되거나 사진이 첨부되면 업로드 버튼이 활성화됩니다.
-- 최대 세 장까지 이미지 첨부가 가능하며 첨부한 파일을 취소할 수 있습니다.
-- 게시글 하단에 업로드 날짜가 표시됩니다.
-
-| 게시글 작성 |
+| 가게 리뷰 |
 |----------|
-|![uploadPost](https://user-images.githubusercontent.com/112460466/210381758-1de5a889-f587-41d2-b200-22c20a970519.gif)|
+|![shopreview](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EA%B0%80%EA%B2%8C%20%EB%A6%AC%EB%B7%B0.png)|
 
 <br>
 
-#### 2. 게시글 수정 및 삭제
-- 자신의 게시글일 경우 모달 버튼을 통해 수정, 삭제가 가능합니다.
-- 게시글 삭제 버튼 클릭 시, 게시글을 삭제하고 페이지를 리렌더링하여 삭제된 내용을 페이지에 반영합니다.
-- 타 유저의 게시글일 경우 모달 버튼을 통해 신고할 수 있습니다.
+#### 3. 좋아요와 신고
+- 도움이 되는 리뷰를 좋아요 표시
+    - 몇 명이 좋아요를 눌렀는지 확인 가능
+- 불량한 리뷰는 신고 가능
 
-| 게시글 수정 & 삭제 |
+| 좋아요 & 신고 |
 |----------|
-|![editDeletePost](https://user-images.githubusercontent.com/112460466/210382021-da057943-dc21-411e-a1f8-552be0e973bf.gif)|
+|![likeComment](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EC%A2%8B%EC%95%84%EC%9A%94%20%EC%8B%A0%EA%B3%A0.png)|
 
 <br>
 
-#### 3. 좋아요와 댓글
-- 좋아요와 댓글 수는 실시간으로 상세 페이지에 반영됩니다.
-- 댓글이 몇 분 전에 작성되었는지 표시됩니다.
-- 자신의 댓글일 경우 모달 버튼을 통해 삭제가 가능합니다.
-- 타 유저의 댓글일 경우 모달 버튼을 통해 신고할 수 있습니다.
+<!-- ## 6. 트러블 슈팅
 
-| 좋아요 & 댓글 |
-|----------|
-|![likeComment](https://user-images.githubusercontent.com/112460466/210382217-01d70181-91c3-43db-a1b8-409a612afb1c.gif)|
+- 
+- 
 
 <br>
 
-### [상품]
+## 7. 개선 목표
 
-#### 1. 상품 등록
-- 상품 이미지, 상품명, 가격, 판매 링크를 필수로 입력해야 저장 버튼이 활성화됩니다.
-- 상품 가격은 숫자만 입력할 수 있으며, 숫자를 입력하면 자동으로 원 단위로 변환됩니다.
-- 상품 가격이 0원일 경우 버튼이 비활성화되며 하단에 경고 문구가 나타납니다.
-- 상품명과 판매 링크는 공백으로 시작할 수 없습니다.
-- 상품 등록이 완료되면 내 프로필 페이지로 이동합니다.
-
-| 상품 등록 |
-|----------|
-|![addProduct](https://user-images.githubusercontent.com/112460466/210386068-c6ff2e05-eb64-4abc-b6dc-93bf52b88d3f.gif)|
-
-<br>
-
-#### 2. 상품 수정 및 삭제
-- 상품 이미지, 상품명, 가격, 판매 링크 중 한 가지를 수정하면 저장 버튼이 활성화됩니다.
-- 상품 수정이 완료되면 내 프로필 페이지로 이동합니다.
-- 상품 삭제 버튼 클릭 시, 상품을 삭제하고 페이지를 리렌더링하여 삭제된 내용을 페이지에 반영합니다.
-
-| 상품 수정 & 삭제 |
-|----------|
-|![editDeleteProduct](https://user-images.githubusercontent.com/112460466/210386311-5fae87a7-745f-47c0-b8e3-fc41c65cb3cb.gif)|
-
-<br>
-
-### [채팅]
-- 채팅 목록에서 아직 읽지 않은 채팅에는 좌측 상단의 파란색 알림을 띄워줍니다.
-- 채팅방에서 메시지를 입력하거나 파일을 업로드하면 전송 버튼이 활성화됩니다.
-- 채팅방에서 우측 상단의 채팅방 나가기 모달 버튼을 통해 채팅 목록 페이지로 이동할 수 있습니다.
-- 채팅 메시지 전송 및 수신 기능은 개발 예정입니다.
-
-| 채팅 |
-|----------|
-|![chat](https://user-images.githubusercontent.com/112460466/210386478-ea4877c5-1728-4872-ab50-a8408ddf6dcd.gif)|
-
-<br>
-
-## 8. 트러블 슈팅
-
-- [탭메뉴 프로필 버튼 이슈](https://github.com/likelion-project-README/README/wiki/README-8.%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85_%ED%83%AD%EB%A9%94%EB%89%B4-%ED%94%84%EB%A1%9C%ED%95%84-%EB%B2%84%ED%8A%BC-%EC%9D%B4%EC%8A%88)
-
-- [프로필 수정 이슈](https://github.com/likelion-project-README/README/wiki/README-8.%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85_%ED%94%84%EB%A1%9C%ED%95%84-%EC%88%98%EC%A0%95-%EC%9D%B4%EC%8A%88)
-
-<br>
-
-## 9. 개선 목표
-
-- API 모듈화 : API를 불러오는 코드의 반복이 많아 모듈화할 예정
-- lighthouse Performance 증진
-    - 모든 페이지에서 특히 Best Practices & SEO 점수는 90~100으로 우수
-    - Performance 점수가 대체적으로 미흡한 문제
+- 
+- 
     
-    ![KakaoTalk_Photo_2023-01-04-16-55-30](https://user-images.githubusercontent.com/112460466/210591134-09bf8efd-3c34-4b99-a3d7-895ca99e1457.png)
-    
-- **23-01-17 성능 개선 내용**
-    
-    ![성능개선 후](https://user-images.githubusercontent.com/106502312/212872369-7ceeb2cf-d551-41d2-bfb0-01e35e9903fe.png)
-    
-    - 이미지 최적화
-        - `<img>` 요소에 `width` , `height` 속성값을 명시해 불필요한 Reflow를 방지했습니다.
-        - browser-image-compression 라이브러리를 사용해 유저가 업로드하는 이미지를 압축했습니다.
-        - Intersection Observer API를 사용해 Lazy Loading 기법을 적용하여 홈 피드의 게시글 이미지가 viewport 내에 들어오는 순간 로딩되도록 변경했습니다.
-    - 웹폰트 최적화
-        - WOFF2 포맷을 추가하고 가장 우선적으로 적용되도록 선언했습니다.
-        - 서브셋 폰트로 교체해 용량을 줄였습니다.
-    
-<br>
+- **개선 내용**
 
-## 10. 프로젝트 후기
+<br> -->
+
+## 6. 프로젝트 후기
 
 ### 😎 김형준
 
