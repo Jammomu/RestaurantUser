@@ -210,12 +210,13 @@ src
 ## 5. 페이지별 기능
 
 ### [메인화면]
-- 서비스 접속 초기화면으로 splash 화면이 잠시 나온 뒤 다음 페이지가 나타납니다.
-    - 로그인이 되어 있지 않은 경우 : SNS 로그인 페이지
-    - 로그인이 되어 있는 경우 : README 홈 화면
-- SNS(카카오톡, 구글, 페이스북) 로그인 기능은 구현되어 있지 않습니다.
+- 서비스 접속 시 메인페이지가 처음 나타납니다.
+    - 메인배너에는 추천 가게가 표시되며,
+    - 레스토랑 리스트 노출
+    - 이벤트 배너 표시 (현재는 레스토랑 등록으로 대체)
+    - 최신 공지사항 표시
 
-| 초기화면 |
+| 메인페이지 |
 |----------|
 |![splash](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png)|
 
@@ -228,7 +229,8 @@ src
 
 | 회원가입 |
 |----------|
-|![join](https://user-images.githubusercontent.com/112460466/210173571-490f5beb-5791-4a4a-8c5e-510cdcb5f1fe.gif)|
+|![join](https://github.com/Jammomu/RestaurantUser/blob/front/release/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.png)|
+|![signup]https://github.com/Jammomu/RestaurantUser/blob/front/release/%EC%9D%B8%EC%A6%9D%20%EB%A9%94%EC%9D%BC.png|
 
 <br>
 
@@ -240,55 +242,18 @@ src
 
 | 로그인 |
 |----------|
-|![login](https://user-images.githubusercontent.com/112460466/210177956-c716414e-01c2-4c1e-b1f7-6562b9b7a857.gif)|
+|![login](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EB%A1%9C%EA%B7%B8%EC%9D%B8.png)|
 
 <br>
 
-### [로그아웃]
-- 상단 의 kebab menu를 클릭 후 나타나는 모달창의 로그아웃 버튼을 클릭하면 확인창이 뜹니다.
-- 로그아웃시 로컬 저장소의 토큰 값과 사용자 정보를 삭제하고 초기화면으로 이동합니다.
-
-| 로그아웃 |
-|----------|
-|![logout](https://user-images.githubusercontent.com/112460466/210178009-11225733-7af5-4b8b-aa1c-fe264af01797.gif)|
-
-<br>
-
-### [상하단 배너]
-- 상단 배너 : 각 페이지별로 다른 종류의 버튼을 가지고 있습니다.
-    - 뒤로가기 : 브라우저 상에 기록된 이전 페이지로 돌아갑니다.
-    - 검색 : 사용자 검색 페이지로 이동합니다.
-    - 사용자 이름 : 채팅룸 페이지의 경우 상대방의 사용자 이름을 보여줍니다.
-    - kebab menu : 각 페이지 또는 컴포넌트에 따른 하단 모달창을 생성합니다.
-        - 상품, 댓글, 게시글 컴포넌트 - 삭제, 수정, 신고하기
-        - 사용자 프로필 페이지 - 설정 및 사용자 정보, 로그아웃
-- 하단 탭 메뉴 : 홈, 채팅, 게시물 작성, 프로필 아이콘을 클릭하면 각각 홈 피드, 채팅 목록, 게시글 작성 페이지, 내 프로필 페이지로 이동합니다.
-
-| 상하단 배너 |
-|----------|
-|![tab](https://user-images.githubusercontent.com/112460466/210178028-3185f944-6ac1-468a-94ba-b32cdc5e380e.gif)|
-
-<br>
-
-### [홈 피드]
-- 자신이 팔로우 한 유저의 게시글이 최신순으로 보여집니다.
-- 팔로우 한 유저가 없거나, 팔로워의 게시글이 없을 경우 검색 버튼이 표시됩니다.
-- 게시글의 상단 유저 배너 클릭 시 게시글을 작성한 유저의 프로필 페이지로, 본문 클릭 시 게시글 상세 페이지로 이동합니다.
-
-| 팔로우하는 유저가 없을 때 | 팔로우하는 유저가 있을 때 |
-|----------|----------|
-|![home0](https://user-images.githubusercontent.com/112460466/210379059-48900aac-3735-45c6-a249-bc9c41b49414.gif)|![home1](https://user-images.githubusercontent.com/112460466/210379110-49153d27-0405-48e6-adfb-62c7818d2f43.gif)|
-
-<br>
-
-### [검색]
+### [가게 목록]
 - 사용자 이름 혹은 계정 ID로 유저를 검색할 수 있습니다.
 - 검색어와 일치하는 단어는 파란색 글씨로 표시됩니다.
 - 클릭 시 해당 유저의 프로필 페이지로 진입합니다.
 
 | 검색 |
 |----------|
-|![search](https://user-images.githubusercontent.com/112460466/210379805-6c8a42c0-0de8-48d3-8f75-cdf0ae5f4fb6.gif)|
+|![search](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EA%B0%80%EA%B2%8C%EB%AA%A9%EB%A1%9D.png)|
 
 <br>
 
