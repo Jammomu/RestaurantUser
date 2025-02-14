@@ -255,17 +255,18 @@ src
 
 <br>
 
-### [프로필]
+### [예약]
 
-#### 1. 예약약
+#### 1. 예약
 - 상단 프로필란에 프로필 수정과 상품 등록 버튼이 나타납니다.
 - 판매중인 상품란에는 사용자가 판매하는 상품이 등록되며, 판매중인 상품이 없을 경우에는 영역 자체가 나타나지 않습니다.
 
 | 예약 중 | 결제 중 |
 |----------|----------|
 |![reservation](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EC%98%88%EC%95%BD%20%EC%A4%91.png)|![payment](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EA%B2%B0%EC%A0%9C%EC%A4%91.png)|
-|---------------------|
-| 예약현황황 |
+
+| 예약현황 |
+|--------------------|
 |![reservation2](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EB%82%B4%20%EC%98%88%EC%95%BD%ED%98%84%ED%99%A9.png)|
 
 <br>
