@@ -226,7 +226,7 @@ src
 - 이미 가입된 아이디가 있는지 중복 확인 합니다.
 - 이메일을 입력 후 인증번호를 받으면 실제 메일로 인증번호가 발송됩니다.
 - 인증번호를 입력 후 확인을 눌러 체크합니다.
-- 가게를 소유 시 사업자입니다.를 체크하여 예비사업권한을 얻은 후 가게를 등록할 수 있습니다.
+- 가게를 소유 시 사업자입니다.를 체크하여 예비사업자 권한을 얻은 후 가게를 등록할 수 있습니다.
 
 | 회원가입 |
 |----------|
@@ -257,17 +257,16 @@ src
 
 ### [프로필]
 
-#### 1. 내 프로필
+#### 1. 예약약
 - 상단 프로필란에 프로필 수정과 상품 등록 버튼이 나타납니다.
 - 판매중인 상품란에는 사용자가 판매하는 상품이 등록되며, 판매중인 상품이 없을 경우에는 영역 자체가 나타나지 않습니다.
-- 게시글란은 상단의 리스트형과 앨범형 두 개의 버튼을 통해서 나누어 볼 수 있습니다.
-    - 리스트형의 경우, 사용자가 작성한 글 내용과 이미지, 좋아요와 댓글의 수를 보여줍니다.
-    - 앨범형의 경우, 사용자 게시글 중 이미지가 있는 글만 필터링해 바둑판 배열로 보여줍니다.
-- 게시글을 클릭하면 각 게시글의 상세페이지로 이동합니다.
 
-| 리스트형 & 앨범형 게시글 | 팔로잉 & 팔로워 리스트 |
+| 예약 중 | 결제 중 |
 |----------|----------|
-|![myProfile](https://user-images.githubusercontent.com/112460466/210380492-40560e0b-c306-4e69-8939-cc3e7dc3d8fe.gif)|![followList](https://user-images.githubusercontent.com/112460466/210380539-d09b0bd7-0b61-4b22-85fa-f75e6bcecb68.gif)|
+|![reservation](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EC%98%88%EC%95%BD%20%EC%A4%91.png)|![payment](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EA%B2%B0%EC%A0%9C%EC%A4%91.png)|
+|---------------------|
+| 예약현황황 |
+|![reservation2](https://github.com/Jammomu/RestaurantUser/blob/front/release/%EB%82%B4%20%EC%98%88%EC%95%BD%ED%98%84%ED%99%A9.png)|
 
 <br>
 
